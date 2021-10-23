@@ -1,16 +1,15 @@
-# This is a sample Python script.
+from account_handler import account_handler
+from pass_generator import pass_generator
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    print_hi('PyCharm')
+    p = pass_generator()
+    pwd = p.generate_password(10)
+    pwd1 = p.generate_password(10)
+    a = account_handler()
+    # a.load_account()
+    a.add_account("fb", pwd)
+    a.add_account("instagram", pwd1)
+    # # a.remove_account("fb")
+    # print(a.get_accounts())
+    # print(len(a.get_accounts()))
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
