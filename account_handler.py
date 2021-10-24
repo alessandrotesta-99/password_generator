@@ -11,15 +11,27 @@ class account_handler:
         return self.accounts
 
     def add_account(self, name, password):
-        if not self.all_accounts_name().__contains__(name):
+        if not self.get_all_accounts_name().__contains__(name):
             self.accounts.append(name + " --> " + password + " ;")
             self.save_account()
         else:
             raise Exception("this name account is already exists.")
 
     def remove_account(self, name):
-        # todo
-        self.accounts.remove(name)
+        if self.get_all_accounts_name().__contains__(name):
+            self.get_accounts().remove(self.get_account_from(name))
+            self.save_account()
+        else:
+            raise Exception("This account isn't exists.")
+
+    def get_account_from(self, name):
+        for acc in self.get_accounts():
+            i = 0
+            for _ in acc:
+                i += 1
+                sub = acc[0:i - 1]
+                if sub == name:
+                    return acc
 
     def edit_account(self, name):
         # todo
@@ -45,7 +57,7 @@ class account_handler:
             self.accounts.remove("\n")
         self.file_handler.close_file()
 
-    def all_accounts_name(self):
+    def get_all_accounts_name(self):
         all_accounts_name = list()
         for acc in self.get_accounts():
             i = 0

@@ -9,6 +9,7 @@ if __name__ == '__main__':
     # a.load_account()
     a.add_account("fb", pwd)
     a.add_account("instagram", pwd1)
+    print(a.get_accounts())
     # # a.remove_account("fb")
     # print(a.get_accounts())
     # print(len(a.get_accounts()))
