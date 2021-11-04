@@ -10,9 +10,9 @@ class file_handler:
 
     def create_file(self, name):
         if not self.file_open:
-            self.open_file(name, "w")
+            return self.open_file(name, "w")
         else:
-            self.open_file(name, "a")
+            return self.open_file(name, "a")
 
     def open_file(self, name, mode):
         if mode == "r" and not os.path.exists(name):

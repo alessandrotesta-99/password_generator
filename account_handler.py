@@ -11,18 +11,31 @@ class account_handler:
         return self.accounts
 
     def add_account(self, name, password):
-        if not self.get_all_accounts_name().__contains__(name):
+        if not self.get_all_account_names(self.get_accounts()).__contains__(name):
             self.accounts.append(name + " --> " + password + " ;")
             self.save_account()
         else:
             raise Exception("this name account is already exists.")
 
     def remove_account(self, name):
-        if self.get_all_accounts_name().__contains__(name):
+        # todo non funziona. Lo rimuove dalla lista ma non dal file.
+        if self.get_all_account_names(self.get_accounts()).__contains__(name):
             self.get_accounts().remove(self.get_account_from(name))
             self.save_account()
         else:
             raise Exception("This account isn't exists.")
+
+    def get_all_account_names(self, a_list):
+        all_accounts_name = list()
+        for acc in a_list:
+            i = 0
+            for char in acc:
+                i += 1
+                if char == " ":
+                    name_account = acc[0:i - 1]
+                    all_accounts_name.append(name_account)
+                    break
+        return all_accounts_name
 
     def get_account_from(self, name):
         for acc in self.get_accounts():
@@ -33,38 +46,33 @@ class account_handler:
                 if sub == name:
                     return acc
 
+    def get_name_from(self, account):
+        for name in self.get_all_account_names(self.get_accounts()):
+            if self.get_account_from(name) == account:
+                return name
+
     def edit_account(self, name):
         # todo
         pass
 
     def save_account(self):
+        account_names_in_list = self.get_all_account_names(self.get_accounts())
         self.file_handler.create_file("account.txt")
         for acc in self.get_accounts():
-            self.file_handler.write_file(str(acc))
-            for char in acc:
-                if char == ";":
-                    self.file_handler.write_file(str("\n"))
-        if self.get_accounts().__contains__("\n"):
-            self.accounts.remove("\n")
+            for name in account_names_in_list:
+                if not self.all_account_names_on_file().__contains__(name):
+                    self.file_handler.write_file(str(acc) + (str("\n")))
+                else:
+                    account_names_in_list.remove(name)
+                    break
         self.file_handler.close_file()
 
+    def all_account_names_on_file(self):
+        file = self.file_handler.open_file("account.txt", "r")
+        return self.get_all_account_names(file.readlines())
+
     def load_account(self):
-        # todo correggere aggiunta di account. mette ogni volta lo spazio dopo il ;. anche in quelli gia esistenti.
+        # aggiungere controllo se si inserisce un account con lo stesso nome.
         file = self.file_handler.open_file("account.txt", "r")
         for acc in file.readlines():
             self.get_accounts().append(acc)
-        if self.get_accounts().__contains__("\n"):
-            self.accounts.remove("\n")
-        self.file_handler.close_file()
-
-    def get_all_accounts_name(self):
-        all_accounts_name = list()
-        for acc in self.get_accounts():
-            i = 0
-            for char in acc:
-                i += 1
-                if char == " ":
-                    name_account = acc[0:i - 1]
-                    all_accounts_name.append(name_account)
-                    break
-        return all_accounts_name
