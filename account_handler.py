@@ -18,7 +18,6 @@ class account_handler:
             raise Exception("this name account is already exists.")
 
     def remove_account(self, name):
-        # todo non funziona. Lo rimuove dalla lista ma non dal file.
         if self.get_all_account_names(self.get_accounts()).__contains__(name):
             self.get_accounts().remove(self.get_account_from(name))
             self.reload_account()
