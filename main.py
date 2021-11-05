@@ -7,7 +7,6 @@ if __name__ == '__main__':
     pwd1 = p.generate_password(10)
     a = account_handler()
     a.load_account()
-    #a.add_account("form", pwd)
     #a.add_account("linkedin", pwd1)
     print(a.get_accounts())
     # # a.remove_account("fb")
