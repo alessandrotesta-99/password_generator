@@ -78,7 +78,7 @@ class account_handler:
         return self.get_all_account_names(file.readlines())
 
     def load_account(self):
-        # aggiungere controllo se si inserisce un account con lo stesso nome.
         file = self.file_handler.open_file("account.txt", "r")
         for acc in file.readlines():
-            self.get_accounts().append(acc)
+            if not self.get_accounts().__contains__(acc):
+                self.get_accounts().append(acc)
