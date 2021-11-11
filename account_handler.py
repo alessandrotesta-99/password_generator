@@ -82,3 +82,8 @@ class account_handler:
         for acc in file.readlines():
             if not self.get_accounts().__contains__(acc):
                 self.get_accounts().append(acc)
+
+    def get_password_from_name(self, name):
+       pass
+
+

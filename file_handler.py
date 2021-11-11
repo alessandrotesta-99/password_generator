@@ -28,7 +28,6 @@ class file_handler:
 
     def write_file(self, text):
         self.file.write(text)
-        print("ok")
 
     def remove_file(self, name):
         if os.path.exists(name):
