@@ -9,7 +9,8 @@ if __name__ == '__main__':
     a = account_handler()
     a.load_account()
     v = view()
-    v.console_view()
+ #   v.console_view()
+    a.get_password_from_name(None)
 
     # a.add_account("linkedin", pwd1)
 

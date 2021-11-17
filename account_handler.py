@@ -84,6 +84,4 @@ class account_handler:
                 self.get_accounts().append(acc)
 
     def get_password_from_name(self, name):
-       pass
-
-
+        pass
