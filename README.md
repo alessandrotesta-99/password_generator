@@ -1,4 +1,5 @@
 # Password generator
+## Intento
 Questo programma è stato sviluppato con l'intento di poter aiutare piu utenti possibili nel salvare i propri account e generare password automatiche nel caso servisse.
 ## Funzioni
 1. generare automaticamente una password di una lunghezza scelta dall'utente.
