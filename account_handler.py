@@ -84,4 +84,23 @@ class account_handler:
                 self.get_accounts().append(acc)
 
     def get_password_from_name(self, name):
-        pass
+        if not self.get_all_account_names(self.get_accounts()).__contains__(name):
+            raise Exception("this name doesn't exists.")
+        for acc in self.get_accounts():
+            if acc == self.get_account_from(name):
+                indexStartPoint, indexEndPoint, flagStop = 0, 0, 0
+                flagStartPoint = False
+                for c in acc:
+                    if not flagStartPoint:
+                        indexStartPoint += 1
+                        indexEndPoint = indexStartPoint
+                    if c == "'":
+                        flagStop += 1
+                        flagStartPoint = True
+                    if flagStop == 2:
+                        break
+                    if flagStartPoint:
+                        indexEndPoint += 1
+                return acc[indexStartPoint:indexEndPoint - 1]
+            else:
+                break

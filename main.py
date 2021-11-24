@@ -9,11 +9,4 @@ if __name__ == '__main__':
     a = account_handler()
     a.load_account()
     v = view()
- #   v.console_view()
-    a.get_password_from_name(None)
-
-    # a.add_account("linkedin", pwd1)
-
-    # # a.remove_account("fb")
-    # print(a.get_accounts())
-    # print(len(a.get_accounts()))
+    v.console_view()

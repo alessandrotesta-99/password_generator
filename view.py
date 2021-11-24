@@ -40,14 +40,17 @@ class view:
                 if password == "g":
                     len = int(input("password length: "))
                     password = self.p.generate_password(len)
-                    self.a.add_account(name, password)
+                else:
+                    self.p.encode_password(password)
+                self.a.add_account(name, password)
             case "2":
                 # remove account
                 nome = input("insert account name: ")
                 self.a.remove_account(nome)
             case "3":
                 # edit account
-                pass
+                name = input("insert account name: ")
+                self.a.edit_account(name)
             case "4":
                 # generate password
                 len = input("password length: ")
@@ -59,7 +62,7 @@ class view:
             case "6":
                 # get password da nome account
                 name = input("insert account name: ")
-                print(self.a.get_password_from_name(name))
+                print(self.p.decode_password(self.a.get_password_from_name(name)))
             case "0":
                 # exit
                 quit()

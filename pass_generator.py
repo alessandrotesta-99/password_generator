@@ -12,7 +12,7 @@ class pass_generator:
         return self.encode_password(self.password)
 
     def encode_password(self, pwd):
-        return base64.b64encode(pwd)
+        return str(base64.b64encode(pwd))
 
     def decode_password(self, pwd):
-        return base64.b64decode(pwd)
+        return str(base64.b64decode(pwd))

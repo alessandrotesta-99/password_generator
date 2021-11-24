@@ -34,6 +34,3 @@ class file_handler:
             os.remove(name)
             self.file = 0
             self.file_open = False
-
-    def print_file(self):
-        pass
