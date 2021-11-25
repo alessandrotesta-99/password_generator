@@ -31,6 +31,8 @@ class account_handler:
         self.file_handler.close_file()
 
     def get_all_account_names(self, a_list):
+        if a_list is None:
+            raise Exception("this list isn't valid.")
         all_accounts_name = list()
         for acc in a_list:
             i = 0
@@ -57,6 +59,7 @@ class account_handler:
                 return name
 
     def edit_account(self, name):
+
         # todo
         pass
 
@@ -85,7 +88,7 @@ class account_handler:
 
     def get_password_from_name(self, name):
         if not self.get_all_account_names(self.get_accounts()).__contains__(name):
-            raise Exception("this name doesn't exists.")
+            raise Exception("this name isn't valid.")
         for acc in self.get_accounts():
             if acc == self.get_account_from(name):
                 indexStartPoint, indexEndPoint, flagStop = 0, 0, 0
@@ -102,5 +105,3 @@ class account_handler:
                     if flagStartPoint:
                         indexEndPoint += 1
                 return acc[indexStartPoint:indexEndPoint - 1]
-            else:
-                break
