@@ -2,10 +2,13 @@
 ## Intento
 Questo programma è stato sviluppato con l'intento di poter aiutare piu utenti possibili nel salvare i propri account e generare password automatiche.
 ## Funzioni
-1. generare automaticamente una password di una lunghezza scelta dall'utente.
-2. mantenere persistenti tutti gli account dell'utente.
-3. aggiungere un nuovo account con una password che potrebbe essere generata al momento.
-4. dare in input l'account e restituire la password decodificata.
+Il programma è in grado di:
+1. Generare automaticamente una password di una lunghezza scelta dall'utente.
+2. Mantenere persistenti tutti gli account dell'utente.
+3. Aggiungere un nuovo account con una password che potrebbe essere generata al momento o con una password inserita dall'utente.
+4. Rimuovere account.
+5. Restituire la password di un account a scelta.
+6. Visualizzare tutti gli account.
 ## Stato
 Il programma al momento offre tutte le funzioni sopra citate ed è in grado di criptare la password che viene generata o inserita. Per ora, implementa una semplice interfaccia a console.
 ## Aggiornamenti
