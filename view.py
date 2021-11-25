@@ -23,7 +23,7 @@ class view:
         while True:
             self.choose(input("\n1 - add account"
                               "\n2 - remove account"
-                              "\n3 - edit account"
+                              "\n3 - edit account (At the moment, this isn't available.)"
                               "\n4 - generate password"
                               "\n5 - view all accounts"
                               "\n6 - get password from account"
@@ -53,10 +53,11 @@ class view:
                 print("Account removed!")
             case "3":
                 # edit account
-                name = input("insert account name: ")
-                self.__check_name(name)
-                self.a.edit_account(name)
-                print("Account edited!")
+                print("Sorry! I'm working for it...")
+                # name = input("insert account name: ")
+                # self.__check_name(name)
+                # self.a.edit_account(name)
+                # print("Account edited!")
             case "4":
                 # generate password
                 pwd_generated = self.__decode_g()

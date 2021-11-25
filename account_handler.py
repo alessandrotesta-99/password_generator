@@ -59,7 +59,6 @@ class account_handler:
                 return name
 
     def edit_account(self, name):
-
         # todo
         pass
 
